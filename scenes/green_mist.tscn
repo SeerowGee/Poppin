@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bqfj0mtr260b7"]
+
+[ext_resource type="Script" uid="uid://ddishjqqsqvug" path="res://scribts/green_mist.gd" id="1_mvtmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r7an"]
+size = Vector2(65, 36)
+
+[node name="GreenMist" type="Area2D" unique_id=1506538784]
+script = ExtResource("1_mvtmf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1561502423]
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 62.0
+offset_bottom = 33.0
+color = Color(0.25882354, 1, 0.31764707, 0.32941177)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=313156974]
+position = Vector2(29.5, 15)
+shape = SubResource("RectangleShape2D_5r7an")
+
+[node name="MistDuration" type="Timer" parent="." unique_id=134307665]
+wait_time = 5.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="MistDuration" to="." method="_on_mist_duration_timeout"]

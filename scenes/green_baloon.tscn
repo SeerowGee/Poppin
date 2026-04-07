@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://d2n5uamsevnkj"]
+
+[ext_resource type="Script" uid="uid://cndl34gbyhhwv" path="res://scribts/green_baloon.gd" id="1_4jw35"]
+[ext_resource type="Texture2D" uid="uid://2bmdtk2svkpd" path="res://assets/green_baloon-Sheet-Sheet.png" id="2_4jw35"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s862l"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hlp5"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8mve"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgdfc"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1pfd"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpay7"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mljeu"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4eg0"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6t48"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aarpa"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykxtm"]
+atlas = ExtResource("2_4jw35")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45ayd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s862l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hlp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8mve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgdfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1pfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpay7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mljeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4eg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6t48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aarpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykxtm")
+}],
+"loop": false,
+"name": &"pop",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvr2q"]
+radius = 6.5
+height = 15.200001
+
+[node name="GreenBaloon" type="Area2D" unique_id=1347496745]
+scale = Vector2(2, 2)
+script = ExtResource("1_4jw35")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1455871624]
+sprite_frames = SubResource("SpriteFrames_45ayd")
+animation = &"pop"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2029370275]
+position = Vector2(-0.49999997, -6.5999994)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_wvr2q")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

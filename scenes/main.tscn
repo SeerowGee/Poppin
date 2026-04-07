@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ddyqui4m6si7f"]
+
+[ext_resource type="Script" uid="uid://bgefpn3vgmtx3" path="res://scribts/main.gd" id="1_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://bnf0ut5k6rku3" path="res://assets/348357__natty23__balloon-pop-from-a-pencil.wav" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://d2n5uamsevnkj" path="res://scenes/green_baloon.tscn" id="3_sugp2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+bg_color = Color(0.16862746, 0.6156863, 0.9529412, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_jyhfs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -269, 190, 0, 0, 0, 0, 303, 193)
+}
+point_count = 2
+
+[node name="Main" type="Node2D" unique_id=664070649]
+script = ExtResource("1_0wfyh")
+
+[node name="Panel" type="Panel" parent="." unique_id=636167734]
+offset_left = -665.0
+offset_top = -313.0
+offset_right = 760.0
+offset_bottom = 492.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=745310019]
+position = Vector2(17, 21)
+zoom = Vector2(2, 2)
+
+[node name="SpawnPath" type="Path2D" parent="." unique_id=175119660]
+curve = SubResource("Curve2D_jyhfs")
+
+[node name="SpawnPathLocation" type="PathFollow2D" parent="SpawnPath" unique_id=1637985198]
+position = Vector2(-269, 190)
+rotation = 0.005244707
+
+[node name="BalloonSpawnTimer" type="Timer" parent="." unique_id=1127806371]
+autostart = true
+
+[node name="BalloonPop" type="AudioStreamPlayer2D" parent="." unique_id=1791777507]
+stream = ExtResource("2_0wfyh")
+volume_db = -15.0
+
+[node name="GreenBaloon" parent="." unique_id=1347496745 instance=ExtResource("3_sugp2")]
+position = Vector2(-138, 123)
+
+[node name="GreenBaloon2" parent="." unique_id=720304614 instance=ExtResource("3_sugp2")]
+position = Vector2(154, 124)
+
+[connection signal="timeout" from="BalloonSpawnTimer" to="." method="_on_balloon_spawn_timer_timeout"]
