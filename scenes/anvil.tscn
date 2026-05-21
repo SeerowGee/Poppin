@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5qug1ii5up7f"]
+
+[ext_resource type="Script" uid="uid://dw3u013i21pd6" path="res://scribts/anvil.gd" id="1_wf6o5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnwij"]
+size = Vector2(55, 47)
+
+[node name="Anvil" type="Area2D" unique_id=636451330]
+script = ExtResource("1_wf6o5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1441424128]
+offset_left = -27.0
+offset_top = -23.0
+offset_right = 28.0
+offset_bottom = 24.0
+color = Color(0.4708554, 0.4708554, 0.4708554, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844772948]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_dnwij")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

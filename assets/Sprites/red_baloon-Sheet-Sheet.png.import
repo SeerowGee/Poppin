@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2bmdtk2svkpd"
-path="res://.godot/imported/green_baloon-Sheet-Sheet.png-278f07efa1c91ef39c7752d062482ca2.ctex"
+uid="uid://3n5otrx62v10"
+path="res://.godot/imported/red_baloon-Sheet-Sheet.png-e9b20513ff2f13fca457fd3be1eae138.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/green_baloon-Sheet-Sheet.png"
-dest_files=["res://.godot/imported/green_baloon-Sheet-Sheet.png-278f07efa1c91ef39c7752d062482ca2.ctex"]
+source_file="res://assets/Sprites/red_baloon-Sheet-Sheet.png"
+dest_files=["res://.godot/imported/red_baloon-Sheet-Sheet.png-e9b20513ff2f13fca457fd3be1eae138.ctex"]
 
 [params]
 

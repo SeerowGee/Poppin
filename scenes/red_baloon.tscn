@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fx6brrwvixsb"]
 
 [ext_resource type="Script" uid="uid://c8unt6iglymuu" path="res://scribts/red_baloon.gd" id="1_wvr2q"]
-[ext_resource type="Texture2D" uid="uid://3n5otrx62v10" path="res://assets/red_baloon-Sheet-Sheet.png" id="2_swmth"]
+[ext_resource type="Texture2D" uid="uid://3n5otrx62v10" path="res://assets/Sprites/red_baloon-Sheet-Sheet.png" id="2_swmth"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ib34x"]
 atlas = ExtResource("2_swmth")
@@ -97,25 +97,25 @@ animations = [{
 radius = 6.5
 height = 15.200001
 
-[node name="RedBaloon" type="Area2D" unique_id=1347496745]
-scale = Vector2(2, 2)
+[node name="RedBaloon" type="RigidBody2D" unique_id=96105137]
 script = ExtResource("1_wvr2q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1455871624]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_45ayd")
 animation = &"pop"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2029370275]
-position = Vector2(-0.49999997, -6.5999994)
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(-1, -11.999999)
+scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_wvr2q")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1863516599]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=954718439]
-position = Vector2(-0.5, -6.6000004)
+position = Vector2(-1, -12)
+scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_wvr2q")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

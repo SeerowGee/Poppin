@@ -1,6 +1,9 @@
 extends RigidBody2D
-const MIST = preload("res://scenes/green_mist.tscn")
+
+const ANVIL = preload("res://scenes/anvil.tscn")
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var drop_point: Marker2D = $Drop_Point
 var has_mouse: bool = false
 var in_anim: bool = false
 var is_ballon: bool = true
@@ -19,13 +22,15 @@ func pop():
 	Event.popped.emit()
 	animated_sprite_2d.play("pop")
 	in_anim = true
+	drop_anvil()
+	await animated_sprite_2d.animation_finished
 	remove_from_group("Balloons")
-	var mist = MIST.instantiate()
-	mist.position = global_position
-	get_parent().add_child(mist)
+	queue_free()
 
-func _physics_process(delta: float) -> void:
-	pass
+func drop_anvil():
+	var anvil = ANVIL.instantiate()
+	anvil.global_position = drop_point.global_position
+	get_parent().add_child(anvil)
 
 func _on_hitbox_mouse_entered() -> void:
 	has_mouse = true

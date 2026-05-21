@@ -1,4 +1,4 @@
-extends Area2D
+class_name Balloon extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var has_mouse: bool = false
 var in_anim: bool = false

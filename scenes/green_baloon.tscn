@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2n5uamsevnkj"]
 
 [ext_resource type="Script" uid="uid://cndl34gbyhhwv" path="res://scribts/green_baloon.gd" id="1_4jw35"]
-[ext_resource type="Texture2D" uid="uid://2bmdtk2svkpd" path="res://assets/green_baloon-Sheet-Sheet.png" id="2_4jw35"]
+[ext_resource type="Texture2D" uid="uid://2bmdtk2svkpd" path="res://assets/Sprites/green_baloon-Sheet-Sheet.png" id="2_4jw35"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s862l"]
 atlas = ExtResource("2_4jw35")
@@ -94,22 +94,36 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvr2q"]
-radius = 6.5
-height = 15.200001
+radius = 6.0
+height = 14.0
 
-[node name="GreenBaloon" type="Area2D" unique_id=1347496745]
-scale = Vector2(2, 2)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4jw35"]
+radius = 6.0
+height = 14.0
+
+[node name="GreenBaloon" type="RigidBody2D" unique_id=119269632]
 script = ExtResource("1_4jw35")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1455871624]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_45ayd")
 animation = &"pop"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2029370275]
-position = Vector2(-0.49999997, -6.5999994)
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(-1, -13)
+scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_wvr2q")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="Timer" type="Timer" parent="." unique_id=2011835661]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1417375857]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=546807901]
+position = Vector2(-1, -13)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_4jw35")
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dt540a8v78dbm"]
 
 [ext_resource type="Script" uid="uid://13j77yiwwv74" path="res://scribts/purple_baloon.gd" id="1_k1lr2"]
-[ext_resource type="Texture2D" uid="uid://dfcltbfs8uhym" path="res://assets/purple_baloon-Sheet-Sheet.png" id="2_k1lr2"]
+[ext_resource type="Texture2D" uid="uid://dfcltbfs8uhym" path="res://assets/Sprites/purple_baloon-Sheet-Sheet.png" id="2_k1lr2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcdpo"]
 atlas = ExtResource("2_k1lr2")

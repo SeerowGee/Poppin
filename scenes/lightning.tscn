@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ca3nse8craegs"]
+
+[ext_resource type="Script" uid="uid://7i6f6uleqdp" path="res://scribts/lightning.gd" id="1_k2dum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7g4i"]
+size = Vector2(13, 24)
+
+[node name="Lightning" type="Area2D" unique_id=315175527]
+script = ExtResource("1_k2dum")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=571122173]
+offset_right = 13.0
+offset_bottom = 24.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=302326206]
+position = Vector2(6.5, 12)
+shape = SubResource("RectangleShape2D_n7g4i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
